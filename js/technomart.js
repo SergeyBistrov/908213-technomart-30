@@ -62,7 +62,7 @@ let storageQuantityName = '';
 let storageQuantityEmail = '';
 
 
-feedbackForm.classList.remove('modal-show');
+feedbackForm.classList.remove('show');
 form_name.removeAttribute('required');
 form_email.removeAttribute('required');
 
@@ -77,7 +77,7 @@ try {
 
 feedbackCloseBtn.addEventListener('click', function(evt) {
 	evt.preventDefault();
-  feedbackForm.classList.remove('modal-show');
+  feedbackForm.classList.remove('show');
 	feedbackForm.classList.remove('modal-error');
 });
 
@@ -85,7 +85,7 @@ feedbackCloseBtn.addEventListener('click', function(evt) {
 feedbackOpenBtn.addEventListener('click', function(evt) {
 	evt.preventDefault();
   feedbackForm.classList.remove('modal-error');
-	feedbackForm.classList.add('modal-show');
+	feedbackForm.classList.add('show');
 	setTimeout(() => {form_name.focus();}, 1500);
 
 	if (form_name && form_email) {
@@ -110,16 +110,16 @@ feedbackForm.addEventListener('submit', function(evt) {
 });
 
 feedbackSubmitBtn.addEventListener('click', function(evt) {
-  if (!feedbackForm.classList.contains('modal-show')) {
+  if (!feedbackForm.classList.contains('show')) {
     feedbackForm.classList.remove('modal-error');
   }
 });
 
 window.addEventListener('keydown', function(evt) {
   if (evt.keyCode === 27) {
-    if (feedbackSubmitBtn.classList.contains('modal-show')) {
+    if (feedbackSubmitBtn.classList.contains('show')) {
       evt.preventDefault();
-      feedbackSubmitBtn.classList.toggle('modal-show');
+      feedbackSubmitBtn.classList.toggle('show');
     }
   }
 });
@@ -141,18 +141,18 @@ let FormBasketCloseBtn = document.querySelector('.popup-basket-btn');
 
     catalogBuy_btn.onclick = function(evt) {
       evt.preventDefault();
-      FormBasket.classList.add('modal-show');
+      FormBasket.classList.add('show');
     };
   };
 
 FormBasketCloseTextBtn.addEventListener('click', function(evt) {
   evt.preventDefault();
-  FormBasket.classList.remove('modal-show');
+  FormBasket.classList.remove('show');
 });
 
 FormBasketCloseBtn.addEventListener('click', function(evt) {
   evt.preventDefault();
-  FormBasket.classList.remove('modal-show');
+  FormBasket.classList.remove('show');
 }); */
 
 
@@ -222,11 +222,11 @@ servicesItem_credit.onclick = function(evt) {
 
 contactMap_link.addEventListener('click', function(evt) {
   evt.preventDefault();
-  popup_map.classList.add('modal-show');
+  popup_map.classList.add('show');
 });
 
 popupMap_closeBtn.addEventListener('click', function(evt) {
-  popup_map.classList.remove('modal-show');
+  popup_map.classList.remove('show');
 });
 
 
@@ -260,3 +260,35 @@ search_input.addEventListener('focusout', function(evt) {
 });
 
 
+
+/* Фиксация и затемнение модального окна */
+
+
+let overLay_feedback = document.querySelector('.overlay-feedback');
+let overLay_map = document.querySelector('.overlay-map');
+let pageBody = document.querySelector('.page-body');
+
+feedbackOpenBtn.addEventListener('click', function(evt) {
+  overLay_feedback.classList.add('show');
+  pageBody.classList.add('page-body-fixed');
+});
+
+feedbackCloseBtn.addEventListener('click', function(evt)  {
+  overLay_feedback.classList.remove('show');
+  pageBody.classList.remove('page-body-fixed');
+});
+
+feedbackSubmitBtn.addEventListener('click', function(evt) {
+  overLay_feedback.classList.remove('show');
+  pageBody.classList.remove('page-body-fixed');
+});
+
+contactMap_link.addEventListener('click', function(evt) {
+  overLay_map.classList.add('show');
+  pageBody.classList.add('page-body-fixed');
+});
+
+popupMap_closeBtn.addEventListener('click', function(evt) {
+  overLay_map.classList.remove('show');
+  pageBody.classList.remove('page-body-fixed');
+});
