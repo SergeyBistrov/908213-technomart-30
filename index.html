@@ -30,7 +30,7 @@
                     </g>
                     </svg>
                   <label class="label-search" for="site-form-search">Поиск:</label>
-                  <input class="input-search hidden" type="search" placeholder="Поиск" name="site-search" id="site-form-search">
+                  <input class="input-search" type="search" placeholder="Поиск" name="site-search" id="site-form-search">
                 </form>
                 <ul class="shop-navigation">
                   <li class="shop-navigation-item navigation-bookmarks-item">
@@ -42,7 +42,7 @@
                     </a>
                   </li>
                   <li class="shop-navigation-item navigation-basket-item">
-                    <a class="shop-navigation-item-link" href="blank.html">
+                    <a class="basket-item-link shop-navigation-item-link" href="blank.html">
                       <svg class="icon-user" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4.5 15C5.32843 15 6 14.3284 6 13.5C6 12.6716 5.32843 12 4.5 12C3.67157 12 3 12.6716 3 13.5C3 14.3284 3.67157 15 4.5 15Z" opacity="0.3" fill="white"/>
                         <path d="M12.5 15C13.3284 15 14 14.3284 14 13.5C14 12.6716 13.3284 12 12.5 12C11.6716 12 11 12.6716 11 13.5C11 14.3284 11.6716 15 12.5 15Z" opacity="0.3" fill="white"/>
@@ -395,8 +395,8 @@
                 </div>
               </form>
             </section>
-          </section>
           </div>
+        </section>
         </div>
 
 
@@ -478,6 +478,31 @@
           </div>
         </div>
       </footer>
-    <script src="js/technomart.js"></script>
+    <div class="overlay-basket">
+    <section class="popup-basket">
+      <div class="popup-basket-header">
+      <h2 class="popup-basket-title">
+        <svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M33 66C51.2254 66 66 51.2254 66 33C66 14.7746 51.2254 0 33 0C14.7746 0 0 14.7746 0 33C0 51.2254 14.7746 66 33 66Z" fill="#63A63E"/>
+<path d="M49.641 21.066C49.2498 20.6773 48.6181 20.6773 48.227 21.066L29.788 39.504C29.3968 39.8927 28.7651 39.8927 28.374 39.504L20.234 31.365C19.8428 30.9763 19.2111 30.9763 18.82 31.365L15.285 34.9C14.8962 35.2912 14.8962 35.9228 15.285 36.314L28.374 49.404C28.7651 49.7927 29.3968 49.7927 29.788 49.404L33.324 45.868L34.738 44.454L53.176 26.016C53.5647 25.6248 53.5647 24.9932 53.176 24.602L49.641 21.066Z" fill="white"/>
+        </svg>
+        Товар добавлен в корзину!
+      </h2>
+      </div>
+        <div class="popup-basket-footer">
+          <a class="popup-basket-link" href="blank.html">Оформить заказ</a>
+          <div class="popup-basket-buttons-wrapper">
+            <button class="popup-basket-btn-text-close" type="button">Продолжить покупки</button>
+            <button class="btn-close popup-basket-btn" type="button">
+              <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.2729 10.5L20.6949 3.07799C21.0839 2.68899 21.0839 2.05299 20.6949 1.66399L19.3359 0.304995C18.9469 -0.0840054 18.3109 -0.0840054 17.9219 0.304995L10.4999 7.72699L3.07793 0.304995C2.68893 -0.0840054 2.05293 -0.0840054 1.66393 0.304995L0.304934 1.66399C-0.0840664 2.05299 -0.0840664 2.68899 0.304934 3.07799L7.72693 10.5L0.305934 17.922C-0.0830664 18.311 -0.0830664 18.947 0.305934 19.336L1.66493 20.695C2.05393 21.084 2.68993 21.084 3.07893 20.695L10.5009 13.273L17.9229 20.695C18.3119 21.084 18.9479 21.084 19.3369 20.695L20.6959 19.336C21.0849 18.947 21.0849 18.311 20.6959 17.922L13.2729 10.5Z" fill="#EE3643"/>
+              </svg>
+              <span class="visually-hidden">Закрыть</span>
+            </button>
+          </div>
+        </div>
+    </section>
+    </div>
+    <script src="js/index.js"></script>
   </body>
 </html>

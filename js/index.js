@@ -1,8 +1,3 @@
-let cardProductPopular_buttons = document.querySelectorAll('.catalog-popular-item, .catalog-perforators-item');
-
-
-let cardProduct_buttons = document.querySelectorAll('.catalog-item-hover_buttons');
-let cardProduct_images = document.querySelectorAll('.catalog-perforators-item-img-container');
 
 let servicesItem_delivery = document.querySelector('.services-item-delivery');
 let servicesItem_security = document.querySelector('.services-item-security');
@@ -12,15 +7,24 @@ let servicesDescription_delivery = document.querySelector('.services-description
 let servicesDescription_security = document.querySelector('.services-description-security');
 let servicesDescription_credit = document.querySelector('.services-description-credit');
 
-let search_icon = document.querySelector('.form-search-path');
-let search_input = document.querySelector('.input-search');
 
 let popup_map = document.querySelector('.popup-map');
 let contactMap_link = document.querySelector('.contacts-map-link');
 let popupMap_closeBtn = document.querySelector('.popup-map-btn');
 
 
+let overLay_feedback_index = document.querySelector('.overlay-feedback');
+let overLay_map_index = document.querySelector('.overlay-map');
+let overLay_basket_index = document.querySelector('.overlay-basket');
+let pageBody_index = document.querySelector('.page-body');
+
+
+
 /* Дополнительные кнопки при наведении на популярные карточки товара */
+
+let cardProductPopular_buttons = document.querySelectorAll('.catalog-popular-item, .catalog-perforators-item');
+let cardProduct_buttons = document.querySelectorAll('.catalog-item-hover_buttons');
+let cardProduct_images = document.querySelectorAll('.catalog-perforators-item-img-container');
 
   for (let i = 0; i < cardProductPopular_buttons.length; i++) {
     let cardProductPopular_button = cardProductPopular_buttons[i];
@@ -61,8 +65,7 @@ let isStorageSupport = true;
 let storageQuantityName = '';
 let storageQuantityEmail = '';
 
-
-feedbackForm.classList.remove('show');
+feedbackForm.classList.remove('modal-rise');
 form_name.removeAttribute('required');
 form_email.removeAttribute('required');
 
@@ -77,15 +80,15 @@ try {
 
 feedbackCloseBtn.addEventListener('click', function(evt) {
 	evt.preventDefault();
-  feedbackForm.classList.remove('show');
+  feedbackForm.style.display = 'none';
 	feedbackForm.classList.remove('modal-error');
 });
-
 
 feedbackOpenBtn.addEventListener('click', function(evt) {
 	evt.preventDefault();
   feedbackForm.classList.remove('modal-error');
-	feedbackForm.classList.add('show');
+	feedbackForm.classList.add('modal-rise');
+  feedbackForm.style.display = 'block';
 	setTimeout(() => {form_name.focus();}, 1500);
 
 	if (form_name && form_email) {
@@ -93,7 +96,6 @@ feedbackOpenBtn.addEventListener('click', function(evt) {
     form_email.value = storageQuantityEmail;
 	}
 });
-
 
 feedbackForm.addEventListener('submit', function(evt) {
   if (!form_name.value || !form_email.value) {
@@ -110,50 +112,48 @@ feedbackForm.addEventListener('submit', function(evt) {
 });
 
 feedbackSubmitBtn.addEventListener('click', function(evt) {
-  if (!feedbackForm.classList.contains('show')) {
+  if (feedbackForm.style.display == 'none') {
     feedbackForm.classList.remove('modal-error');
   }
 });
 
-window.addEventListener('keydown', function(evt) {
-  if (evt.keyCode === 27) {
-    if (feedbackSubmitBtn.classList.contains('show')) {
+
+
+/* Модальное окно - корзина */
+
+let basketItem_index = document.querySelectorAll('.basket-item-link');
+
+let catalogBuy_btns_index = document.querySelectorAll('.catalog-perforators-item-buy');
+let formBasket_index = document.querySelector('.popup-basket');
+let formBasketCloseTextBtn_index = document.querySelector('.popup-basket-btn-text-close');
+let formBasketCloseBtn_index = document.querySelector('.popup-basket-btn');
+
+  for (let i = 0; i < catalogBuy_btns_index.length; i++) {
+    let catalogBuy_btn_index = catalogBuy_btns_index[i];
+    formBasket_index.classList.remove('modal-rise');
+    catalogBuy_btn_index.onclick = function(evt) {
       evt.preventDefault();
-      feedbackSubmitBtn.classList.toggle('show');
-    }
-  }
-});
-
-
-
-
-/* поп-ап корзины */
-
-/*
-let catalogBuy_btns = document.querySelectorAll('.catalog-perforators-item-buy');
-let FormBasket = document.querySelector('.popup-basket');
-let FormBasketCloseTextBtn = document.querySelector('.popup-basket-btn-text-close');
-let FormBasketCloseBtn = document.querySelector('.popup-basket-btn');
-
-
-  for (let i = 0; i < catalogBuy_btns.length; i++) {
-    let catalogBuy_btn = catalogBuy_btns[i];
-
-    catalogBuy_btn.onclick = function(evt) {
-      evt.preventDefault();
-      FormBasket.classList.add('show');
+      formBasket_index.classList.add('modal-rise');
+      overLay_basket_index.style.display = 'block';
+      pageBody_index.classList.add('page-body-fixed');
+      formBasket_index.style.display = 'flex';
     };
   };
 
-FormBasketCloseTextBtn.addEventListener('click', function(evt) {
+formBasketCloseTextBtn_index.onclick = function(evt) {
   evt.preventDefault();
-  FormBasket.classList.remove('show');
-});
+    formBasket_index.style.display = 'none';
+    overLay_basket_index.style.display = 'none';
+    pageBody_index.classList.remove('page-body-fixed');
+};
 
-FormBasketCloseBtn.addEventListener('click', function(evt) {
+formBasketCloseBtn_index.onclick = function(evt) {
   evt.preventDefault();
-  FormBasket.classList.remove('show');
-}); */
+    formBasket_index.style.display = 'none';
+    overLay_basket_index.style.display = 'none';
+    pageBody_index.classList.remove('page-body-fixed');
+};
+
 
 
 /* Переключение блоков - доставка, гарантия, кредит */
@@ -222,41 +222,43 @@ servicesItem_credit.onclick = function(evt) {
 
 contactMap_link.addEventListener('click', function(evt) {
   evt.preventDefault();
-  popup_map.classList.add('show');
+  popup_map.style.display = 'block';
 });
 
 popupMap_closeBtn.addEventListener('click', function(evt) {
-  popup_map.classList.remove('show');
+  popup_map.style.display = 'none';
 });
 
 
 
-/* Изменение цвета кнопок при фокусе поиска */
+/* поиск */
 
-let formSearch = document.querySelector('.form-search');
-let labelSearch = document.querySelector('.label-search');
+let search_icon_index = document.querySelector('.form-search-path');
+let search_input_index = document.querySelector('.input-search');
+let formSearch_index = document.querySelector('.form-search');
+let labelSearch_index = document.querySelector('.label-search');
 
-search_input.onblur = function() {
-  labelSearch.classList.remove('hidden');
-  search_input.classList.add('hidden');
+search_input_index.onblur = function() {
+  labelSearch_index.style.visibility = 'visible';
+  search_input_index.style.visibility = 'hidden';
 };
 
-formSearch.addEventListener('click', function(evt) {
-  labelSearch.classList.add('hidden');
-  search_input.classList.remove('hidden');
-  search_input.focus();
+formSearch_index.addEventListener('click', function(evt) {
+  labelSearch_index.style.visibility = 'hidden';
+  search_input_index.style.visibility = 'visible';
+  search_input_index.focus();
 });
 
 
-
-search_input.addEventListener('focus', function(evt) {
-  search_icon.style.fill = 'var(--basic-red)';
-
+search_input_index.addEventListener('focus', function(evt) {
+  search_icon_index.style.fill = 'var(--basic-red)';
+  formSearch_index.style.backgroundColor = 'var(--basic-white)';
 
 });
 
-search_input.addEventListener('focusout', function(evt) {
-  search_icon.style.fill = 'white';
+search_input_index.addEventListener('focusout', function(evt) {
+  search_icon_index.style.fill = 'white';
+  formSearch_index.style.backgroundColor = 'transparent';
 });
 
 
@@ -264,31 +266,23 @@ search_input.addEventListener('focusout', function(evt) {
 /* Фиксация и затемнение модального окна */
 
 
-let overLay_feedback = document.querySelector('.overlay-feedback');
-let overLay_map = document.querySelector('.overlay-map');
-let pageBody = document.querySelector('.page-body');
-
 feedbackOpenBtn.addEventListener('click', function(evt) {
-  overLay_feedback.classList.add('show');
-  pageBody.classList.add('page-body-fixed');
+  overLay_feedback_index.style.display = 'block';
+  pageBody_index.classList.add('page-body-fixed');
 });
 
-feedbackCloseBtn.addEventListener('click', function(evt)  {
-  overLay_feedback.classList.remove('show');
-  pageBody.classList.remove('page-body-fixed');
-});
-
-feedbackSubmitBtn.addEventListener('click', function(evt) {
-  overLay_feedback.classList.remove('show');
-  pageBody.classList.remove('page-body-fixed');
+feedbackCloseBtn.addEventListener('click', function(evt) {
+  overLay_feedback_index.style.display = 'none';
+  pageBody_index.classList.remove('page-body-fixed');
 });
 
 contactMap_link.addEventListener('click', function(evt) {
-  overLay_map.classList.add('show');
-  pageBody.classList.add('page-body-fixed');
+  overLay_map_index.style.display = 'block';
+  pageBody_index.classList.add('page-body-fixed');
 });
 
 popupMap_closeBtn.addEventListener('click', function(evt) {
-  overLay_map.classList.remove('show');
-  pageBody.classList.remove('page-body-fixed');
+  overLay_map_index.style.display = 'none';
+  pageBody_index.classList.remove('page-body-fixed');
 });
+
