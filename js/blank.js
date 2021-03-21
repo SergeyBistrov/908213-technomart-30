@@ -9,6 +9,7 @@ let cardProduct_images = document.querySelectorAll('.catalog-perforators-item-im
     let cardProductPopular_button = cardProductPopular_buttons[i];
     let cardProduct_button = cardProduct_buttons[i];
     let cardProduct_image = cardProduct_images[i];
+
     cardProductPopular_button.onmouseover = function (evt) {
     cardProduct_button.classList.remove('visually-hidden');
     cardProduct_image.classList.add('hidden');
@@ -18,13 +19,14 @@ let cardProduct_images = document.querySelectorAll('.catalog-perforators-item-im
     let cardProductPopular_button = cardProductPopular_buttons[i];
     let cardProduct_button = cardProduct_buttons[i];
     let cardProduct_image = cardProduct_images[i];
+
     cardProductPopular_button.onmouseout = function (evt) {
     cardProduct_button.classList.add('visually-hidden');
     cardProduct_image.classList.remove('hidden');
     }
  };
 
-/* Поиск */
+/* Search */
 
 let search_icon = document.querySelector('.form-search-path');
 let search_input = document.querySelector('.input-search');
@@ -43,6 +45,7 @@ formSearch.addEventListener('click', function(evt) {
 search_input.addEventListener('focus', function(evt) {
   search_icon.style.fill = 'var(--basic-red)';
   formSearch.style.backgroundColor = 'var(--basic-white)';
+
 });
 search_input.addEventListener('focusout', function(evt) {
   search_icon.style.fill = 'white';
@@ -94,14 +97,3 @@ formBasketCloseBtn.onclick = function(evt) {
     overLay_basket.style.display = 'none';
     pageBody.classList.remove('page-body-fixed');
 };
-
-window.addEventListener('keydown', function(evt) {
-  if (evt.keyCode === 27) {
-    if (formBasket.style.display == 'flex') {
-      evt.preventDefault();
-      formBasket.style.display = 'none';
-      overLay_basket.style.display = 'none';
-      pageBody.classList.remove('page-body-fixed');
-    }
-  }
-});
