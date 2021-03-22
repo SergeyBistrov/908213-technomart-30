@@ -70,7 +70,7 @@
 }
 
 .page-body {
-  min-width: 1200px;
+  min-width: 940px;
 	min-height: 100%;
   margin: 0;
   padding: 0;
@@ -128,6 +128,7 @@ input, button {
 
 .container {
   width: 940px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 
@@ -658,13 +659,14 @@ input, button {
   grid-row:  2 / 4;
   grid-column: 1 / 3;
   position: relative;
-  margin-bottom: -5px;
+
   background-color: var(--basic-dark-brown);
 }
 
 .promo-slider-pannel {
   position: relative;
   overflow: hidden;
+  margin-bottom: -5px;
 }
 
 .promo-slider-gallery {
@@ -2135,7 +2137,7 @@ input, button {
 .popup-map-btn {
   position: absolute;
   top: 15px;
-  right: 5px;
+  right: 25px;
 }
 
 .show {
