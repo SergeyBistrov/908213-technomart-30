@@ -92,12 +92,6 @@ img {
   height: auto;
 }
 
-input, button {
-  font-size: inherit;
-  color: inherit;
-  border-sizing: border-box;
-}
-
 :root {
   --basic-black: #000000;
   --basic-white: #ffffff;
@@ -177,7 +171,7 @@ input, button {
   color: var(--basic-white);
   background-color: var(--basic-light-grey);
   padding-bottom: 60px;
-  margin-bottom: 59px;
+  margin-bottom: 52px;
 }
 
 .catalog-page-header-inner {
@@ -224,7 +218,7 @@ input, button {
   background-color: var(--basic-red);
   box-shadow: inset 0px -5px 0px rgba(0, 0, 0, 0.24);
 }
-.logo-active:hover {
+.logo-active:active {
   background-color: var(--basic-deep-red);
 }
 
@@ -456,6 +450,7 @@ input, button {
   list-style: none;
   background-color: var(--basic-lightly-dark-blue);
   box-shadow: inset 0px -5px 0px #293449;
+  flex-wrap: wrap;
 }
 
 .site-navigation-item {
@@ -649,19 +644,18 @@ input, button {
   line-height: 18px;
   color: var(--basic-white);
   background-color: transparent;
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-  margin-bottom: 56px;
+  margin-bottom: 58px;
 }
 
 .promo-slider {
-  grid-row:  2 / 4;
-  grid-column: 1 / 3;
-  position: relative;
 
+  position: relative;
+  margin-top: -260px;
+  top: 409px;
+  width: 620px;
   background-color: var(--basic-dark-brown);
+  overflow: hidden;
+
 }
 
 .promo-slider-pannel {
@@ -770,7 +764,7 @@ input, button {
 
 .slider-btn-next {
   margin-top: -150px;
-  right: 15px;
+  right: 13px;
 }
 
 .promo-slider-link {
@@ -801,8 +795,8 @@ input, button {
 .brends-header-link:focus,
 .about-company-link:hover,
 .about-company-link:focus,
-.contacts-btn:hover,
-.contacts-btn:focus,
+.contacts-link:hover,
+.contacts-link:focus,
 .services-description-credit-link:hover,
 .services-description-credit-link:focus,
 .popup-basket-link:hover,
@@ -816,13 +810,12 @@ input, button {
 .catalog-perforators-link:active,
 .brends-header-link:active,
 .about-company-link:active,
-.contacts-btn:active,
+.contacts-link:active,
 .services-description-credit-link:active,
 .popup-basket-link:active,
 .feedback-form-btn-send:active {
   background-color: var(--basic-extra-dark-red);
 }
-
 
 .promo-navigation-list {
   position: relative;
@@ -831,7 +824,6 @@ input, button {
   list-style: none;
   grid-row: 1 / 4;
   grid-column: 1 / 4;
-
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
@@ -839,15 +831,11 @@ input, button {
   position: relative;
 }
 
-
 .promo-materials-item {
+  position: relative;
   background-color: var(--basic-orange);
-  grid-row: 1 / 2;
-  grid-column: 1 / 2;
 }
 .promo-materials-item::before {
-  grid-row: 1 / 2;
-  grid-column: 1 / 2;
   content: '';
   position: absolute;
   background-image: url('../img/figures/materials.png');
@@ -859,13 +847,10 @@ input, button {
 }
 
 .promo-tool-item {
+  position: relative;
   background-color: var(--basic-blue);
-  grid-row: 1 / 2;
-  grid-column: 2 / 3;
 }
 .promo-tool-item::before {
-  grid-row: 1 / 2;
-  grid-column: 2 / 3;
   content: '';
   position: absolute;
   background-image: url('../img/figures/tool.png');
@@ -877,13 +862,10 @@ input, button {
 }
 
 .promo-technic-item {
+  position: relative;
   background-color: var(--basic-pink);
-  grid-row: 1 / 2;
-  grid-column: 3 / 4;
 }
 .promo-technic-item::before {
-  grid-row: 1 / 2;
-  grid-column: 3 / 4;
   content: '';
   position: absolute;
   background-image: url('../img/figures/technic.png');
@@ -895,13 +877,10 @@ input, button {
 }
 
 .promo-discounts-item {
+  position: relative;
   background-color: var(--basic-light-green);
-  grid-row: 2 / 3;
-  grid-column: 3 / 4;
 }
 .promo-discounts-item::before {
-  grid-row: 2 / 3;
-  grid-column: 3 / 4;
   content: '';
   position: absolute;
   background-image: url('../img/figures/discounts.png');
@@ -913,14 +892,11 @@ input, button {
 }
 
 .promo-delivery-item {
+  position: relative;
   background-color: var(--basic-orange);
-  grid-row: 3 / 4;
-  grid-column: 3 / 4;
 }
 
 .promo-delivery-item::before {
-  grid-row: 3 / 4;
-  grid-column: 3 / 4;
   content: '';
   position: absolute;
   background-image: url('../img/figures/delivery.png');
@@ -933,6 +909,13 @@ input, button {
 
 .promo-navigation-item {
   padding-bottom: 21px;
+}
+
+.promo-navigation-list::before {
+  content: '';
+  position: relative;
+  grid-row: 2 / 4;
+  grid-column: 1 / 3;
 }
 
 .promo-navigation-item-title {
@@ -985,7 +968,7 @@ input, button {
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: auto auto;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .catalog-perforators {
@@ -1011,7 +994,7 @@ input, button {
   grid-row: 1 / 2;
   grid-column: 1 / 3;
   padding: 29px 0;
-  margin-bottom: 21px;
+  margin-bottom: 20px;
 }
 
 .popular-perforators-title span {
@@ -1231,6 +1214,7 @@ input, button {
   max-height: 100px;
   border: none;
   background-color: var(--basic-green);
+  color: var(--basic-white);
   box-shadow: inset 0px -3px 0px #367315;
   border-radius: 2px;
   cursor: pointer;
@@ -1413,7 +1397,7 @@ input, button {
 
 .new-product::after {
   top: 0;
-  right: 0;
+  right: 1px;
 }
 
 /* services */
@@ -1720,7 +1704,6 @@ input, button {
   text-align: center;
   padding: 11px 42px 9px 39.7px;
   max-width: 265px;
-
 }
 
 /* contacts */
@@ -1737,7 +1720,7 @@ input, button {
   margin-bottom: 33px;
 }
 
-.contacts-btn {
+.contacts-link {
   border: 0;
   cursor: pointer;
   font-family: 'Cuprum', sans-serif;
@@ -1753,7 +1736,7 @@ input, button {
 }
 
 .contacts-map {
-  margin-bottom: 17px;
+  margin-bottom: 26px;
 }
 
 .contacts-map img {
@@ -1950,7 +1933,7 @@ input, button {
 }
 
 .footer-navigation-list-top {
-  margin-bottom: 35px;
+  margin-bottom: 34px;
 }
 
 .footer-navigation-item-bottom:first-child {
@@ -2630,7 +2613,7 @@ input[type='radio']:disabled + label {
 .catalog-sort-controls {
   margin: 0;
   flex-shrink: 0;
-  margin-left: 41px;
+  margin-left: 38px;
 }
 
 .catalog-sort-btn {
@@ -2639,7 +2622,7 @@ input[type='radio']:disabled + label {
 }
 
 .sort-btn-back {
-  margin-right: 5px;
+  margin-right: 1px;
 }
 
 .catalog-sort-btn:hover svg path,

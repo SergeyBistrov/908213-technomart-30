@@ -236,7 +236,7 @@ popupMap_closeBtn.addEventListener('click', function(evt) {
 let feedbackForm = document.querySelector('.popup-feedback');
 let feedbackFormSubmit = document.querySelector('.popup-feedback-form');
 let feedbackSubmitBtn = document.querySelector('.feedback-form-btn-send');
-let feedbackOpenBtn = document.querySelector('.contacts-btn');
+let feedbackOpenBtn = document.querySelector('.contacts-link');
 let feedbackCloseBtn = document.querySelector('.feedback-form-btn');
 let form_name = feedbackForm.querySelector('[name=form-name]');
 let form_email = feedbackForm.querySelector('[name=form-email]');
