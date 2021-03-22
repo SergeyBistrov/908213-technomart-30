@@ -128,7 +128,7 @@ input, button {
 
 .container {
   width: 940px;
-  padding: 0 20px;
+  padding: 0 10px;
   margin: 0 auto;
 }
 
@@ -164,6 +164,7 @@ input, button {
 
 .page-body-fixed {
   height: 100vh;
+  width: 100%;
   overflow-y: hidden;
   padding-right: 15px;
   position: fixed;
@@ -2122,7 +2123,7 @@ input, button {
   top: 50%;
   left: 50%;
   margin-top: -224.5px;
-  margin-left: -471.5px;
+  margin-left: -481px;
   opacity: 0;
   animation-name: anim-top-run, anim-rise;
   animation-duration: 0.3s, 0.5s;
@@ -2137,7 +2138,7 @@ input, button {
 .popup-map-btn {
   position: absolute;
   top: 15px;
-  right: 25px;
+  right: 15px;
 }
 
 .show {
